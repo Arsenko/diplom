@@ -12,4 +12,5 @@
     <string name="number_9">9</string>
     <string name="cancel_number">C</string>
     <string name="pin_enter">Enter pin:</string>
+    <string name="name_hint">Enter your name</string>
 </resources>
