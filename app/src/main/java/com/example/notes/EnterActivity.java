@@ -52,10 +52,11 @@ public class EnterActivity extends AppCompatActivity {
                 if(queryCursor.moveToFirst()) {
                     Intent toMain = new Intent(this, MainActivity.class);
                     toMain.putExtra(db.KEY_NAME, name);
-                    toMain.putExtra(db.KEY_ADMIN, cashedPass);
+                    toMain.putExtra(db.KEY_ADMIN, queryCursor.getInt(queryCursor.getColumnIndex(db.KEY_ADMIN)));
                     startActivity(toMain);
                 }
             }
+            queryCursor.close();
         }
     }
 

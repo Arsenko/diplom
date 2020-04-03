@@ -13,4 +13,6 @@
     <string name="cancel_number">C</string>
     <string name="pin_enter">Enter pin:</string>
     <string name="name_hint">Enter your name</string>
+    <string name="add_button">Add note</string>
+    <string name="save_button">Save</string>
 </resources>

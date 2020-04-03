@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import androidx.annotation.Nullable;
 
 public class DbHelper extends SQLiteOpenHelper {
-    public static final int DATABASE_VERSION=1;
+    public static final int DATABASE_VERSION=2;
     public static final String DATABASE_NAME="notesDB";
     //struct
     public static final String LOG_TABLE="login";
@@ -18,7 +18,7 @@ public class DbHelper extends SQLiteOpenHelper {
     public static final String KEY_PIN="pin";
     public static final String KEY_ADMIN="admin";
     //note keys
-    public static final String KEY_ID="id";
+    public static final String KEY_ID="_id";
     public static final String KEY_HEAD="head";
     public static final String KEY_BODY="body";
     public static final String KEY_CREATOR_NAME="creatorName";
@@ -30,7 +30,7 @@ public class DbHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("create table "+LOG_TABLE+"("+KEY_NAME+" text primary key, "+KEY_PIN+" text,"
-                +KEY_ADMIN +" number"+")");
+                +KEY_ADMIN +" integer"+")");
         db.execSQL("create table "+NOTES_TABLE+"("+KEY_ID+" integer primary key, "+KEY_HEAD +" text,"
                 +KEY_BODY +" text,"+KEY_CREATOR_NAME+ " text,FOREIGN KEY("+KEY_CREATOR_NAME+") REFERENCES "+LOG_TABLE+
                 "("+KEY_NAME+"))");
@@ -39,6 +39,12 @@ public class DbHelper extends SQLiteOpenHelper {
         contentValues.put(KEY_PIN,"0000");
         contentValues.put(KEY_ADMIN,1);
         db.insert(LOG_TABLE,null,contentValues);
+        //test
+        contentValues.clear();
+        contentValues.put(KEY_HEAD,"1");
+        contentValues.put(KEY_BODY,"2");
+        db.insert(NOTES_TABLE,null,contentValues);
+        //
     }
 
     @Override
