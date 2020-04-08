@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/btn_del"
+        android:icon="@mipmap/del_but"
+        android:onClick="onDel"
+        android:title="del"
+        app:showAsAction="always" />
+</menu>

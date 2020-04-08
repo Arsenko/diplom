@@ -4,12 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@mipmap/back_note_list"
     tools:context=".MainActivity">
 
     <Button
         android:id="@+id/btnAdd"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:background="@android:color/darker_gray"
+        android:backgroundTint="@color/mr_cast_progressbar_background_dark"
+        android:backgroundTintMode="add"
         android:text="@string/add_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

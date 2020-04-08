@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@mipmap/back_note_list"
     tools:context=".AddActivity">
 
     <EditText
@@ -14,9 +14,9 @@
         android:layout_margin="5dp"
         android:ems="10"
         android:gravity="start"
+        android:hint="@string/header_hint"
         android:inputType="textPersonName"
         android:singleLine="true"
-        android:text="Name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -28,9 +28,8 @@
         android:layout_margin="5dp"
         android:ems="10"
         android:gravity="start"
-        android:inputType="textPersonName"
-        android:singleLine="false"
-        android:text="Name"
+        android:hint="@string/body_hint"
+        android:inputType="textMultiLine"
         app:layout_constraintBottom_toTopOf="@+id/btnSave"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -40,6 +39,9 @@
         android:id="@+id/btnSave"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:background="@android:color/darker_gray"
+        android:backgroundTint="@color/mr_cast_progressbar_background_dark"
+        android:backgroundTintMode="add"
         android:text="@string/save_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
