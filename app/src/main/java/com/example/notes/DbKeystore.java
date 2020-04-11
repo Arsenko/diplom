@@ -28,19 +28,19 @@ public class DbKeystore implements Keystore {
 
     @Nullable
     @Override
-    public int isAdmin(String userName, String pin) {
+    public String isAdmin(String userName, String pin) {
         try (Cursor queryCursor = database.query(DbHelper.LOG_TABLE, new String[]{DbHelper.KEY_ADMIN},
                 DbHelper.KEY_NAME + "='" + userName + "' and " + DbHelper.KEY_PIN + "='" + pin + "'",
                 null, null, null, null)) {
             if (queryCursor != null) {
                 if (queryCursor.moveToFirst()) {
-                    return queryCursor.getInt(queryCursor.getColumnIndex(DbHelper.KEY_ADMIN));
+                    return queryCursor.getString(queryCursor.getColumnIndex(DbHelper.KEY_ADMIN));
                 } else {
-                    return -1;
+                    return null;
                 }
             }
         }
-        return -1;
+        return null;
     }
 
     public void newUser(String userName, String pin) {

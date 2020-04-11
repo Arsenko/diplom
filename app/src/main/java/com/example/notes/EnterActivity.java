@@ -47,8 +47,8 @@ public class EnterActivity extends AppCompatActivity {
             name = loginText.getText().toString();
             final Keystore keystore = App.getKeystore();
             if (keystore.userExists(name)) {
-                int isAdmin = keystore.isAdmin(name, cashedPass);
-                if (isAdmin != -1) {
+                String isAdmin = keystore.isAdmin(name, cashedPass);
+                if(isAdmin!=null) {
                     Intent toMain = new Intent(this, MainActivity.class);
                     toMain.putExtra(AppConstants.name, name);
                     toMain.putExtra(AppConstants.admin, isAdmin);
