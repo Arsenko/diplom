@@ -21,5 +21,6 @@
     <string name="answer_yes">YES</string>
     <string name="answer_no">NO</string>
     <string name="error">ERROR</string>
-    <string name="dialog_toast">create new user?</string>
+    <string name="dialog_toast">New user created</string>
+    <string name="wrong_password">Incorrect password</string>
 </resources>

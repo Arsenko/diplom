@@ -25,16 +25,16 @@ public class MainActivity extends AppCompatActivity {
     private void init() {
         Button btnAdd = findViewById(R.id.btnAdd);
         ListView notesList = findViewById(R.id.notesList);
-        name = getIntent().getExtras().getString(DbHelper.KEY_NAME);
-        adapterList = new AdapterList(getIntent().getExtras().getInt(DbHelper.KEY_ADMIN), name, this);
-        adapter = adapterList.createAdapter(this);
+        name = getIntent().getExtras().getString(AppConstants.name);
+        adapterList = new AdapterList(this,getIntent().getExtras().getString(AppConstants.admin),name);
+        adapter = adapterList.createAdapter();
         notesList.setAdapter(adapter);
         adapter.notifyDataSetChanged();
         notesList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent editNote = new Intent(MainActivity.this, AddActivity.class);
-                editNote.putExtra(DbHelper.KEY_ID, adapterList.getAdapterList().get(position).get(DbHelper.KEY_ID));
+                editNote.putExtra(AppConstants.noteId, adapterList.getAdapterList().get(position).get(DbHelper.KEY_ID));
                 startActivity(editNote);
             }
         });
@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent addNote = new Intent(MainActivity.this, AddActivity.class);
-                addNote.putExtra(DbHelper.KEY_NAME, name);
+                addNote.putExtra(AppConstants.name, name);
                 startActivity(addNote);
             }
         });
